@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".tic_tac_toe.PlayActivity"
+    android:background="#248eed"
+    android:padding="16dp"
+    >
+
+    <RelativeLayout
+        android:id="@+id/txt_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        >
+        <TextView
+            android:id="@+id/player1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:text="Player1"
+            android:maxWidth="160dp"
+            />
+
+        <TextView
+            android:visibility="invisible"
+            android:id="@+id/turn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player1"
+            android:text="OOO"
+            android:textColor="#fff"
+            android:layout_marginTop="6dp"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:id="@+id/player2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:layout_alignParentRight="true"
+            android:text="Player 2"
+            android:maxWidth="160dp"
+            />
+
+        <TextView
+            android:id="@+id/turn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player2"
+            android:text="OOO"
+            android:textColor="#fff"
+            android:layout_marginTop="6dp"
+            android:layout_alignParentRight="true"
+            android:textSize="16sp"
+            android:visibility="invisible"
+            />
+    </RelativeLayout>
+    <GridView
+        android:id="@+id/gird_view"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="8"
+        android:background="@drawable/custom_background_gridview"
+        />
+
+
+</RelativeLayout>

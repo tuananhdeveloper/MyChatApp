@@ -4,6 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/background_message"
+
     >
 
     <androidx.recyclerview.widget.RecyclerView
@@ -21,6 +23,8 @@
         android:orientation="horizontal"
         android:id="@+id/input"
         android:layout_alignParentBottom="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         >
         <EditText
             android:id="@+id/edt_message"
@@ -33,10 +37,11 @@
 
         <ImageView
             android:id="@+id/send"
-            android:layout_width="match_parent"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_send"
             android:layout_weight="4"
             />
     </LinearLayout>
+
 </RelativeLayout>

@@ -1,20 +1,35 @@
 package com.example.mychatapp.adapters;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mychatapp.Model.Message;
+import com.example.mychatapp.Model.User;
 import com.example.mychatapp.R;
+import com.example.mychatapp.fragments.FragmentMessage;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHolder> {
 
@@ -24,17 +39,26 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
     private List<Message> list;
     private Context context;
     private FirebaseUser firebaseUser;
-    public MessageAdapter(List<Message> list, Context context) {
+
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
+    private Bitmap bitmap;
+
+    public MessageAdapter(List<Message> list, Bitmap bitmap, Context context) {
         this.context = context;
         this.list = list;
+        this.bitmap = bitmap;
+        storage = FirebaseStorage.getInstance();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
         TextView txt_body;
+        CircleImageView imgAvatar;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             txt_body = itemView.findViewById(R.id.text_message_body);
+            imgAvatar = itemView.findViewById(R.id.avatar);
         }
     }
 
@@ -48,6 +72,10 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
         }
         else{
             View view = LayoutInflater.from(context).inflate(R.layout.item_message_received, parent, false);
+            CircleImageView img = view.findViewById(R.id.avatar);
+            if(bitmap != null){
+                img.setImageBitmap(bitmap);
+            }
             MyViewHolder holder = new MyViewHolder(view);
             return holder;
         }
@@ -73,4 +101,5 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
         }
         else return MSG_TYPE_LEFT;
     }
+
 }

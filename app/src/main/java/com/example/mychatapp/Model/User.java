@@ -5,7 +5,7 @@ public class User {
     private String email;
     private Boolean isOnline;
     private String id;
-
+    private String imageUrl;
     public User(){
 
     }
@@ -14,14 +14,15 @@ public class User {
         return id;
     }
 
-    public User(String id, String name, String email, Boolean isOnline) {
+    public User(String id, String name, String email, Boolean isOnline, String imageUrl) {
         this.name = name;
         this.email = email;
         this.isOnline = isOnline;
         this.id = id;
+        this.imageUrl = imageUrl;
     }
 
-    public Boolean getOnline() {
+    public Boolean isOnline() {
         return isOnline;
     }
 
@@ -43,5 +44,17 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
