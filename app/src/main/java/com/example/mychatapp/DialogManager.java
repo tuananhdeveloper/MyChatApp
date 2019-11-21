@@ -46,6 +46,7 @@ public final class DialogManager{
                             String name = (String) snapshot.child("Name").getValue();
                             String msg = name + " invites you to play Tic Tac Toe";
                             InvitationDialog dialog = new InvitationDialog(msg, snapshot.getKey(), listKey, firebaseUser, (String)snapshot.child("idUser1").getValue(), name);
+                            dialog.setCancelable(false);
                             try {
                                 dialog.show(fragmentManager, "dialog_tictactoe");
                                 listKey.add(snapshot.getKey());

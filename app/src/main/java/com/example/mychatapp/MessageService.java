@@ -114,7 +114,6 @@ public class MessageService extends Service {
     }
 
     public void stopForcegroundService(){
-        if(valueEventListener != null) reference.removeEventListener(valueEventListener);
         stopSelf();
     }
 

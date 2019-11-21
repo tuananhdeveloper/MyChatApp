@@ -18,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentActivity;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
@@ -67,6 +68,7 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(Login.this, Register.class));
                 finish();
+
             }
         });
         edtEmail = findViewById(R.id.edit_email);
@@ -75,7 +77,6 @@ public class Login extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String email = edtEmail.getText().toString().trim();
                 String password = edtPassword.getText().toString();
                 if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){

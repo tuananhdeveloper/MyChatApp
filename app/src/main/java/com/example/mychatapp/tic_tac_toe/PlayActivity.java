@@ -77,7 +77,7 @@ public class PlayActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.getValue() == null){
-                    Toast.makeText(PlayActivity.this, "The player has exited!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(PlayActivity.this, "The player has exited!", Toast.LENGTH_SHORT).show();
                     gridView.setEnabled(false);
                 }
             }
@@ -104,6 +104,7 @@ public class PlayActivity extends AppCompatActivity implements AdapterView.OnIte
                         if(isWinner(p, Integer.parseInt(str[0]), Integer.parseInt(str[1]))){
                             gridView.setEnabled(false);
                             EndGameDialog dialog = new EndGameDialog(PlayActivity.this, "You lost!", "Play again?", reference, roomId, gridView);
+                            dialog.setCancelable(false);
                             dialog.show(getSupportFragmentManager(), "dialog_endgame");
                         }
                     }
@@ -159,6 +160,7 @@ public class PlayActivity extends AppCompatActivity implements AdapterView.OnIte
 
                 gridView.setEnabled(false);
                 EndGameDialog dialog = new EndGameDialog(this, "You win!", "Play again?", reference, roomId, gridView);
+                dialog.setCancelable(false);
                 dialog.show(getSupportFragmentManager(), "dialog_endgame");
             }
         }

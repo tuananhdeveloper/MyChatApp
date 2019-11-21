@@ -118,6 +118,7 @@ public class UserOnlineFragment extends Fragment implements View.OnClickListener
                             intent.putExtras(bundle);
                             startActivity(intent);
                             reference1.child("room").removeEventListener(this);
+                            reference1.removeEventListener(this);
                             getActivity().finish();
                         }
                         catch (NullPointerException e){
