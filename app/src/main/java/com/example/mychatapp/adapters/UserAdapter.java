@@ -41,6 +41,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
     private FirebaseStorage storage;
     private StorageReference storageReference;
     private Map<String, Bitmap> bitmaps;
+    private Bitmap currentBitmap;
 
     public UserAdapter(ArrayList<User> userList, Map<String, Bitmap> bitmaps, Context context){
         this.userList = userList;
@@ -94,9 +95,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
         //set bitmap
         if(bitmaps.size() != 0){
             if(bitmaps.get(mUser.getId()) != null){
-                if(!((BitmapDrawable)myViewHolder.imageView.getDrawable()).getBitmap().sameAs(bitmaps.get(mUser.getId()))){
-                    myViewHolder.imageView.setImageBitmap(bitmaps.get(mUser.getId()));
-                }
+                myViewHolder.imageView.setImageBitmap(bitmaps.get(mUser.getId()));
             }
         }
 

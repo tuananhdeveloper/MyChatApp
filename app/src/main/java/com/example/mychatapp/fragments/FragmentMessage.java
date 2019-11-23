@@ -52,6 +52,8 @@ import java.util.List;
 import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import hani.momanii.supernova_emoji_library.Actions.EmojIconActions;
+import hani.momanii.supernova_emoji_library.Helper.EmojiconEditText;
 
 public class FragmentMessage extends Fragment {
 
@@ -60,13 +62,14 @@ public class FragmentMessage extends Fragment {
     private DatabaseReference reference;
     private FirebaseAuth auth;
     private FirebaseUser firebaseUser;
-    private EditText edtMsg;
+    private EmojiconEditText edtMsg;
     private ImageView send;
     private String id_currentUser;
     private RecyclerView recyclerView;
     private String key;
     private MessageAdapter mAdapter;
     private String name;
+    private ImageView emojButton;
 
     private String nameRceiver;
     private String idReceiver;
@@ -117,15 +120,18 @@ public class FragmentMessage extends Fragment {
         ((AppCompatActivity)context).startService(intent);
 
         View view = inflater.inflate(R.layout.layout_message, container, false);
-
+        emojButton = view.findViewById(R.id.emoj_button);
         layout = view.findViewById(R.id.background_message);
+        edtMsg = view.findViewById(R.id.edt_message);
+        send = view.findViewById(R.id.send);
+        recyclerView = view.findViewById(R.id.my_recycler_view);
+
+        EmojIconActions emojIconActions = new EmojIconActions(getContext(), layout, edtMsg, emojButton, "#F06292", "#FCE4EC", "#E8F5E9");
+        emojIconActions.ShowEmojIcon();
         //background
         BackgroundChatManager backgroundChatManager = BackgroundChatManager.getInstance();
         backgroundChatManager.changeBackground(getActivity(), layout);
 
-        edtMsg = view.findViewById(R.id.edt_message);
-        send = view.findViewById(R.id.send);
-        recyclerView = view.findViewById(R.id.my_recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(context);
         layoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(layoutManager);

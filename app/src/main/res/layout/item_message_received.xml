@@ -1,9 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:emojicon="http://schemas.android.com/apk/res-auto"
     android:paddingTop="4dp"
-    android:paddingBottom="4dp"
-    >
+    android:paddingBottom="4dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="44dp"
@@ -13,7 +13,7 @@
         android:layout_centerVertical="true"
         android:layout_marginStart="10dp"
         />
-    <TextView
+    <hani.momanii.supernova_emoji_library.Helper.EmojiconTextView
         android:id="@+id/text_message_body"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,10 +21,11 @@
         android:padding="10dp"
         android:textColor="#fff"
         android:maxWidth="240dp"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:layout_toEndOf="@id/avatar"
         android:layout_centerVertical="true"
         android:layout_marginStart="8dp"
+        emojicon:emojiconSize="22sp"
         />
     
 </RelativeLayout>

@@ -52,7 +52,7 @@ public class FragmentList extends Fragment {
     private FirebaseStorage storage;
     private StorageReference storageReference;
     private Bitmap currentBitmap;
-
+    private View mFragmentView;
     @Override
     public void onAttach(@NonNull final Context context) {
         super.onAttach(context);
@@ -67,12 +67,15 @@ public class FragmentList extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.list_fragment, container, false);
-        recyclerView = view.findViewById(R.id.my_recycler_view);
+        if(mFragmentView != null){
+            return mFragmentView;
+        }
+        mFragmentView = inflater.inflate(R.layout.list_fragment, container, false);
+        recyclerView = mFragmentView.findViewById(R.id.my_recycler_view);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         readUsers();
-        return view;
+        return mFragmentView;
     }
 
     @Override

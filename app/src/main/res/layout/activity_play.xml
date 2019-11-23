@@ -44,8 +44,7 @@
             android:textSize="20sp"
             android:layout_alignParentEnd="true"
             android:maxWidth="160dp"
-            android:layout_toEndOf="@+id/player1"
-            />
+            tools:ignore="RelativeOverlap" />
 
         <TextView
             android:id="@+id/turn2"

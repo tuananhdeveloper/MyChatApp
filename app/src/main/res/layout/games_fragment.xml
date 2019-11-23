@@ -19,6 +19,7 @@
         android:layout_toEndOf="@id/img_tic_tac_toe"
         android:text="@string/game_name"
         android:layout_marginEnd="20dp"
+        android:layout_marginStart="14dp"
         android:textSize="20sp"
         android:layout_centerVertical="true"
         />
