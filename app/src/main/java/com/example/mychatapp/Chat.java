@@ -80,7 +80,6 @@ public class Chat extends AppCompatActivity implements NavigationView.OnNavigati
     SharedPreferences sharedPreferences;
     Toolbar toolbar;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         ThemeManager themeManager = new ThemeManager(Chat.this);
@@ -100,14 +99,6 @@ public class Chat extends AppCompatActivity implements NavigationView.OnNavigati
         if(firebaseUser.getPhotoUrl() != null){
             storageReference = storage.getReferenceFromUrl(firebaseUser.getPhotoUrl().toString());
             downloadFile();
-        }
-
-
-        //Service
-        if(sharedPreferences.getInt("state", -1) != 0){
-            Intent intent = new Intent(Chat.this, MessageService.class);
-            intent.setAction(MessageService.ACTION_START_FOREGROUND_SERVICE);
-            startService(intent);
         }
 
         //fragment
@@ -135,6 +126,13 @@ public class Chat extends AppCompatActivity implements NavigationView.OnNavigati
         //onClick
         navigationView.setNavigationItemSelectedListener(this);
         DialogManager.showDialog(getSupportFragmentManager(), firebaseUser);
+
+        //Service
+        if(sharedPreferences.getInt("state", -1) != 0){
+            Intent intent = new Intent(Chat.this, MessageService.class);
+            intent.setAction(MessageService.ACTION_START_FOREGROUND_SERVICE);
+            startService(intent);
+        }
 
     }
 
@@ -236,7 +234,6 @@ public class Chat extends AppCompatActivity implements NavigationView.OnNavigati
             fragmentTransaction.commit();
         }
     }
-
 
     public void gamesFragment(){
         FragmentManager fragmentManager = getSupportFragmentManager();

@@ -20,8 +20,6 @@
         android:id="@+id/txt_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tuan Anh"
-
         android:textSize="24sp"
         android:textColor="#fff"
         android:layout_centerHorizontal="true"

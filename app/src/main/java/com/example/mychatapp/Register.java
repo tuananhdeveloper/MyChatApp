@@ -94,7 +94,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                             String userId = firebaseUser.getUid();
                             User user = new User(userId, name, email, false, "default");
                             reference.child("Users").child(userId).setValue(user);
-                            startActivity(new Intent(Register.this, Login.class));
+                            startActivity(new Intent(Register.this, EmailVerification.class));
                             finish();
                         }
                         else{

@@ -25,7 +25,6 @@
             android:id="@+id/txt_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Jimmy - Son"
             android:textColor="#fff"
             android:textSize="24sp"
             android:layout_below="@+id/img_avatar"
@@ -40,7 +39,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
-        android:hint="Name"
+        android:hint="@string/name"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         >
 
@@ -54,7 +53,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Current password"
+        android:hint="@string/current_password"
         android:layout_marginTop="4dp"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
@@ -71,7 +70,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="New password"
+        android:hint="@string/new_password"
         app:helperText="Could be empty"
         android:layout_marginTop="4dp"
         android:layout_marginLeft="24dp"
@@ -90,7 +89,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Comfirm new password"
+        android:hint="@string/comfirm_new_password"
 
         android:layout_marginTop="4dp"
         android:layout_marginLeft="24dp"

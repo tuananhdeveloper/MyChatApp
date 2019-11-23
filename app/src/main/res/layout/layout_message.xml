@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,7 +17,6 @@
 
     <LinearLayout
         android:layout_height="wrap_content"
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:id="@+id/input"
@@ -31,8 +29,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Write a message..."
+            android:hint="@string/edt_send_hint"
             android:maxHeight="80dp"
+            android:importantForAutofill="no"
+            android:inputType="text"
             />
 
         <ImageView
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_send"
             android:layout_weight="4"
-            />
+            android:contentDescription="@string/image_description" />
     </LinearLayout>
 
 </RelativeLayout>

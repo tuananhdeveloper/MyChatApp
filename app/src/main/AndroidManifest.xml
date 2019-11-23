@@ -30,6 +30,7 @@
             </intent-filter>
 
         </activity>
+        <activity android:name=".EmailVerification"/>
         <activity android:name=".Register"/>
         <activity android:name=".Chat"  android:launchMode="singleTask" android:windowSoftInputMode="adjustPan"
             />

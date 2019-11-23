@@ -10,13 +10,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/bubble_right"
-        android:text="I'm OK......"
         android:padding="10dp"
         android:textColor="#fff"
         android:maxWidth="240dp"
         android:layout_alignParentEnd="true"
-        android:textSize="16dp"
-        android:layout_marginRight="10dp"
+        android:textSize="16sp"
+        android:layout_marginEnd="10dp"
         />
 
 </RelativeLayout>

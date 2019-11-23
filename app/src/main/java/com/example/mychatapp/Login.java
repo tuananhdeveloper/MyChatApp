@@ -57,9 +57,17 @@ public class Login extends AppCompatActivity {
             Toast.makeText(this, "network is disconnected", Toast.LENGTH_LONG).show();
         }
         if(auth.getCurrentUser() != null){
-            Intent intent = new Intent(this, Chat.class);
-            startActivity(intent);
-            finish();
+            auth.getCurrentUser().reload();
+            if(auth.getCurrentUser().isEmailVerified()){
+                Intent intent = new Intent(this, Chat.class);
+                startActivity(intent);
+                finish();
+            }
+            else{
+                Intent intent = new Intent(this, EmailVerification.class);
+                startActivity(intent);
+                finish();
+            }
         }
 
         tvRegister = findViewById(R.id.txt_register);
@@ -90,8 +98,14 @@ public class Login extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     progressBar.setVisibility(View.INVISIBLE);
                                     if(task.isSuccessful()){
-                                        startActivity(new Intent(Login.this, Chat.class));
-                                        finish();
+                                        if(auth.getCurrentUser().isEmailVerified()){
+                                            startActivity(new Intent(Login.this, Chat.class));
+                                            finish();
+                                        }
+                                        else{
+                                            startActivity(new Intent(Login.this, EmailVerification.class));
+                                            finish();
+                                        }
                                     }
                                     else{
                                         Toast.makeText(Login.this, "Authentication failed.",

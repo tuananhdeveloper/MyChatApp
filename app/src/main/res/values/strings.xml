@@ -4,5 +4,32 @@
     <string name="navigation_drawer_close">Close</string>
     <string name="channel_name">notifi_chatapp</string>
     <string name="channel_description">Notification Chat  App</string>
-
+    <string name="about_text">Made by Nguyễn Tuấn Anh, Nguyễn Đức Nhân\nEmail: tuananhilf@gmail.com\nVersion 1.0.0</string>
+    <string name="txt_turn">OOO</string>
+    <string name="game_name">Caro Online</string>
+    <string name="image_description">Icon</string>
+    <string name="edt_send_hint">Write a message</string>
+    <string name="auto_fill_hint">Message</string>
+    <string name="btn_start_name">Start</string>
+    <string name="txt_select_player">Select player:</string>
+    <string name="btn_invite_name">Invite</string>
+    <string name="txt_login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="btn_login_name">Login</string>
+    <string name="txt_register">Click here to register</string>
+    <string name="name">Name</string>
+    <string name="current_password">Current password</string>
+    <string name="new_password">New password</string>
+    <string name="comfirm_new_password">Comfirm new password</string>
+    <string name="register">Register</string>
+    <string name="notification">Notification</string>
+    <string name="change_color">Change color</string>
+    <string name="change_background_chat">Change background chat</string>
+    <string name="txt_caro_online">Caro Online</string>
+    <string name="txt_email_verified">Your email is not verified!</string>
+    <string name="btn_send_email_name">Send Email</string>
+    <string name="btn_refresh_name">Refresh</string>
+    <string name="txt_logout">Click here to logout</string>
+    <string name="btn_register_name">Register</string>
 </resources>

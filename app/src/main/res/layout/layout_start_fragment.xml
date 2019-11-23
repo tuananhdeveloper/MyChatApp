@@ -12,7 +12,7 @@
         android:id="@+id/btn_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start"
+        android:text="@string/btn_start_name"
         app:backgroundTint="#E91E63"
         android:textColor="#fff"
         android:textSize="18sp"
