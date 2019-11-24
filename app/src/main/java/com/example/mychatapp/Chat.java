@@ -101,10 +101,12 @@ public class Chat extends AppCompatActivity implements NavigationView.OnNavigati
             downloadFile();
         }
 
+
         //fragment
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.container, new FragmentList(), "home");
         fragmentTransaction.commit();
+        attachMessageFragment();
 
         //navigation drawer
         drawer = findViewById(R.id.drawer_layout);
@@ -159,20 +161,21 @@ public class Chat extends AppCompatActivity implements NavigationView.OnNavigati
     protected void onResume() {
         super.onResume();
         setStatus(true);
+    }
 
+    public void attachMessageFragment(){
         if(getIntent().getExtras() != null){
 
             FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
             fragmentTransaction2.replace(R.id.container, new FragmentMessage(this,
-                    getIntent().getExtras().getString("idSender"),
-                    getIntent().getExtras().getString("nameSender"),
-                    getIntent().getExtras().getString("imageUrl")),
+                            getIntent().getExtras().getString("idSender"),
+                            getIntent().getExtras().getString("nameSender"),
+                            getIntent().getExtras().getString("imageUrl")),
                     "message")
                     .addToBackStack(null);
             fragmentTransaction2.commit();
         }
     }
-
     @Override
     protected void onPause() {
         super.onPause();
@@ -289,12 +292,6 @@ public class Chat extends AppCompatActivity implements NavigationView.OnNavigati
                 startService(intent);
             }
         }
-    }
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        setIntent(intent);
     }
 
     public void downloadFile(){

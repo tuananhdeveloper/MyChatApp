@@ -123,9 +123,9 @@ public class MessageService extends Service {
         intent.putExtra("idSender", idSender);
         intent.putExtra("nameSender", nameSender);
         intent.putExtra("imageUrl", imageUrlSender);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, channelID);
         builder.setSmallIcon(R.drawable.ic_message_black_24dp);
         builder.setContentTitle(title);
