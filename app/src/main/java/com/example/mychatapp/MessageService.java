@@ -123,7 +123,7 @@ public class MessageService extends Service {
         intent.putExtra("idSender", idSender);
         intent.putExtra("nameSender", nameSender);
         intent.putExtra("imageUrl", imageUrlSender);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, channelID);

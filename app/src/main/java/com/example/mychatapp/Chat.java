@@ -161,19 +161,21 @@ public class Chat extends AppCompatActivity implements NavigationView.OnNavigati
     protected void onResume() {
         super.onResume();
         setStatus(true);
+
     }
 
     public void attachMessageFragment(){
-        if(getIntent().getExtras() != null){
-
-            FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction2.replace(R.id.container, new FragmentMessage(this,
-                            getIntent().getExtras().getString("idSender"),
-                            getIntent().getExtras().getString("nameSender"),
-                            getIntent().getExtras().getString("imageUrl")),
-                    "message")
-                    .addToBackStack(null);
-            fragmentTransaction2.commit();
+        if(getIntent() != null){
+            if(getIntent().getExtras() != null){
+                FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction2.replace(R.id.container, new FragmentMessage(this,
+                                getIntent().getExtras().getString("idSender"),
+                                getIntent().getExtras().getString("nameSender"),
+                                getIntent().getExtras().getString("imageUrl")),
+                        "message")
+                        .addToBackStack(null);
+                fragmentTransaction2.commit();
+            }
         }
     }
     @Override
